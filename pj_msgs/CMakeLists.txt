@@ -35,6 +35,7 @@ else()
       msg/DataPoints.msg
       msg/Dictionary.msg
       DEPENDENCIES builtin_interfaces
+      ADD_LINTER_TESTS
      )
 
     ament_export_dependencies(rosidl_default_runtime)
