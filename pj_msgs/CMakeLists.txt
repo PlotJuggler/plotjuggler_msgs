@@ -31,9 +31,9 @@ else()
     find_package(rosidl_default_generators REQUIRED)
 
     rosidl_generate_interfaces(${PROJECT_NAME}
-      msg2/DataPoint.msg
-      msg2/DataPoints.msg
-      msg2/Dictionary.msg
+      msg/DataPoint.msg
+      msg/DataPoints.msg
+      msg/Dictionary.msg
       DEPENDENCIES builtin_interfaces
      )
 
