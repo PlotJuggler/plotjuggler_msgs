@@ -1,0 +1,44 @@
+cmake_minimum_required(VERSION 3.5)
+project(pj_msgs)
+
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+if( CATKIN_DEVEL_PREFIX OR catkin_FOUND OR CATKIN_BUILD_BINARY_PACKAGE)
+
+    find_package(catkin REQUIRED COMPONENTS std_msgs  message_generation  )
+    catkin_package( CATKIN_DEPENDS std_msgs  message_generation )
+
+    add_message_files( FILES
+      msg/DataPoint.msg
+      msg/DataPoints.msg
+      msg/Dictionary.msg
+    )
+    generate_messages(
+      DEPENDENCIES
+      std_msgs
+    )
+
+else()
+    find_package(ament_cmake REQUIRED)
+    find_package(builtin_interfaces REQUIRED)
+    find_package(rosidl_default_generators REQUIRED)
+
+    rosidl_generate_interfaces(${PROJECT_NAME}
+      msg2/DataPoint.msg
+      msg2/DataPoints.msg
+      msg2/Dictionary.msg
+      DEPENDENCIES builtin_interfaces
+     )
+
+    ament_export_dependencies(rosidl_default_runtime)
+    ament_package()
+endif()
+
+
