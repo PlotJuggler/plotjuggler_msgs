@@ -13,17 +13,19 @@ endif()
 if( CATKIN_DEVEL_PREFIX OR catkin_FOUND OR CATKIN_BUILD_BINARY_PACKAGE)
 
     find_package(catkin REQUIRED COMPONENTS std_msgs  message_generation  )
-    catkin_package( CATKIN_DEPENDS std_msgs  message_generation )
 
     add_message_files( FILES
-      msg/DataPoint.msg
-      msg/DataPoints.msg
-      msg/Dictionary.msg
+      DataPoint.msg
+      DataPoints.msg
+      Dictionary.msg
     )
+    
     generate_messages(
       DEPENDENCIES
       std_msgs
     )
+    
+    catkin_package( CATKIN_DEPENDS std_msgs  message_generation )
 
 else()
     find_package(ament_cmake REQUIRED)
