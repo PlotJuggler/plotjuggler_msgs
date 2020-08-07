@@ -12,7 +12,11 @@
     <depend>message_runtime</depend>
     <depend>std_msgs</depend>
 
+    <!-- ROS2 dependencies -->
+    <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+    <member_of_group condition="$ROS_VERSION == 2">rosidl_interface_packages</member_of_group>
+    
     <export>
-
+        <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
     </export>
 </package>
