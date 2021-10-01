@@ -18,6 +18,8 @@ if( CATKIN_DEVEL_PREFIX OR catkin_FOUND OR CATKIN_BUILD_BINARY_PACKAGE)
       DataPoint.msg
       DataPoints.msg
       Dictionary.msg
+      StatisticsNames.msg
+      StatisticsValues.msg
     )
     
     generate_messages(
@@ -36,6 +38,8 @@ else()
       msg/DataPoint.msg
       msg/DataPoints.msg
       msg/Dictionary.msg
+      msg/StatisticsNames.msg
+      msg/StatisticsValues.msg
       DEPENDENCIES builtin_interfaces
       ADD_LINTER_TESTS
      )
