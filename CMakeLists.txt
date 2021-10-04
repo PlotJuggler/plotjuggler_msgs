@@ -31,8 +31,8 @@ if( CATKIN_DEVEL_PREFIX OR catkin_FOUND OR CATKIN_BUILD_BINARY_PACKAGE)
 
 else()
     find_package(ament_cmake REQUIRED)
-    find_package(builtin_interfaces REQUIRED)
     find_package(rosidl_default_generators REQUIRED)
+    find_package(std_msgs REQUIRED)
 
     rosidl_generate_interfaces(${PROJECT_NAME}
       msg/DataPoint.msg
@@ -40,11 +40,12 @@ else()
       msg/Dictionary.msg
       msg/StatisticsNames.msg
       msg/StatisticsValues.msg
-      DEPENDENCIES builtin_interfaces
+      DEPENDENCIES std_msgs
       ADD_LINTER_TESTS
      )
 
     ament_export_dependencies(rosidl_default_runtime)
+    ament_export_dependencies(std_msgs)
     ament_package()
 endif()
 
